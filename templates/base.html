@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}SHAPPNO Vps — Pro Hosting Panel{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{
+  --primary:#000000;
+  --primary-active:#1a1a1a;
+  --text-link:#0d74ce;
+  --ink:#171717;
+  --body:#60646c;
+  --muted:#999999;
+  --muted-soft:#cccccc;
+  --hairline:#f0f0f3;
+  --hairline-soft:#f5f5f7;
+  --hairline-strong:#dcdee0;
+  --canvas:#ffffff;
+  --canvas-soft:#fafafa;
+  --surface-card:#ffffff;
+  --surface-strong:#f0f0f3;
+  --surface-dark:#171717;
+  --surface-dark-elevated:#1a1a1a;
+  --on-primary:#ffffff;
+  --on-dark:#ffffff;
+  --on-dark-soft:#b0b4ba;
+  --sky-light:#cfe7ff;
+  --sky-mid:#a8c8e8;
+  --warn:#ab6400;
+  --ok:#16a34a;
+  --danger:#eb8e90;
+  --radius-xs:4px;
+  --radius-sm:6px;
+  --radius-md:8px;
+  --radius-lg:12px;
+  --radius-xl:16px;
+  --radius-pill:9999px;
+}
+html,body{margin:0;padding:0;font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--canvas);color:var(--ink);min-height:100vh}
+body{
+  background:
+    radial-gradient(1000px 500px at 50% -10%, var(--sky-light), transparent 60%),
+    var(--canvas);
+  background-attachment: fixed;
+}
+a{color:var(--text-link);text-decoration:none}
+a:hover{text-decoration:underline}
+.nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 28px;height:64px;
+  background:rgba(255,255,255,0.85);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--hairline);
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;letter-spacing:-0.3px;color:var(--ink)}
+.brand .logo{width:32px;height:32px;border-radius:var(--radius-md);background:var(--primary);display:grid;place-items:center;font-size:16px;color:#fff}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{color:var(--ink);font-size:14px;font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;height:40px;border-radius:var(--radius-md);border:0;cursor:pointer;font-weight:500;font-size:14px;font-family:inherit;transition:background-color .15s, box-shadow .15s, border-color .15s}
+.btn-primary{background:var(--primary);color:var(--on-primary)}
+.btn-primary:hover{background:var(--primary-active)}
+.btn-ghost{background:var(--surface-card);color:var(--ink);border:1px solid var(--hairline-strong)}
+.btn-ghost:hover{background:var(--surface-strong)}
+.btn-ok{background:var(--ok);color:#fff}
+.btn-warn{background:var(--warn);color:#fff}
+.btn-danger{background:#dc2626;color:#fff}
+.btn-sm{padding:6px 12px;height:32px;font-size:12px;border-radius:var(--radius-sm)}
+.wrap{max-width:1200px;margin:32px auto;padding:0 20px}
+.card{background:var(--surface-card);border:1px solid var(--hairline-strong);border-radius:var(--radius-lg);padding:24px;box-shadow:0 4px 12px rgba(0,0,0,0.04)}
+.card + .card{margin-top:18px}
+h1,h2,h3{margin:0 0 14px;font-weight:600;letter-spacing:-0.5px;color:var(--ink)}
+h1{font-size:36px;line-height:1.15;letter-spacing:-1.08px}
+h2{font-size:22px;line-height:1.25;letter-spacing:-0.5px}
+h3{font-size:18px;line-height:1.4;letter-spacing:0}
+input,select,textarea{
+  padding:12px 16px;height:44px;border-radius:var(--radius-md);border:1px solid var(--hairline-strong);
+  background:var(--surface-card);color:var(--ink);font-size:14px;font-family:inherit;
+  transition:border-color .15s, box-shadow .15s;
+}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row > input{flex:1;min-width:130px}
+.muted{color:var(--body);font-size:13px}
+.footer{text-align:center;padding:48px 30px;color:var(--body);font-size:14px;border-top:1px solid var(--hairline);margin-top:48px}
+.gradient-text{color:var(--ink)}
+.badge{display:inline-block;padding:4px 10px;border-radius:var(--radius-pill);font-size:11px;font-weight:600;letter-spacing:.88px;text-transform:uppercase;background:var(--surface-strong);color:var(--ink)}
+.badge-on{background:rgba(22,163,74,0.1);color:var(--ok);border:1px solid rgba(22,163,74,0.25)}
+.badge-off{background:rgba(220,38,38,0.08);color:#dc2626;border:1px solid rgba(220,38,38,0.25)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--hairline)}
+th{color:var(--body);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.88px}
+form.inline{display:inline}
+code{background:var(--surface-strong);color:var(--ink);padding:2px 6px;border-radius:var(--radius-xs);font-family:'JetBrains Mono','Fira Code',monospace;font-size:13px}
+</style>
+{% block head %}{% endblock %}
+</head><body>
+<nav class="nav">
+  <a href="/" class="brand"><span class="logo">⚡</span><span>CloudVPS</span></a>
+  <div class="nav-links">
+    <a href="/home">Home</a>
+    <a href="/pricing">Pricing</a>
+    {% if session.username %}
+      <span class="muted">{{session.username}}</span>
+      <a href="/logout" class="btn btn-ghost btn-sm">Logout</a>
+    {% else %}
+      <a href="/login" class="btn btn-primary btn-sm">Login</a>
+    {% endif %}
+  </div>
+</nav>
+{% block body %}{% endblock %}
+<div class="footer">© CloudVPS — Powered by Railway · Built for developers</div>
+</body></html>
