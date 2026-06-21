@@ -1,6 +1,6 @@
 """
 Pro VPS Panel - Railway deployable
-Owner: shappno / shappno_codex
+Owner: henry / developer_henry
 """
 import os, json, time, uuid, shutil, subprocess, threading, signal, secrets
 from collections import deque
@@ -20,8 +20,8 @@ FILES_ROOT = APP_DIR / "user_files"
 DATA_DIR.mkdir(exist_ok=True)
 FILES_ROOT.mkdir(exist_ok=True)
 
-OWNER_USER = "YOUR_USERNAME"
-OWNER_PASS = "YOUR_PASS"
+OWNER_USER = "developer"
+OWNER_PASS = "admin123"
 
 DEFAULT_PRICING = {
     "currency": "₹",
