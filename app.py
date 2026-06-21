@@ -24,13 +24,13 @@ OWNER_USER = "developer"
 OWNER_PASS = "admin123"
 
 DEFAULT_PRICING = {
-    "currency": "₹",
-    "contact": "Telegram: @shappno_044x",
+    "currency": "$",
+    "contact": "Telegram: @bybitguy",
     "plans": [
-        {"name": "Starter", "duration": "24 Hours",  "price": "49",  "features": "1 file run, 512MB RAM, Real-time logs"},
-        {"name": "Basic",   "duration": "7 Days",    "price": "199", "features": "Multi-file upload, pip/npm install, 24/7 uptime"},
-        {"name": "Pro",     "duration": "30 Days",   "price": "599", "features": "Unlimited modules, Priority support, Auto-restart"},
-        {"name": "Premium", "duration": "Lifetime",  "price": "1999","features": "All features, Custom domain, Dedicated help"},
+        {"name": "Starter", "duration": "24 Hours",  "price": "1",  "features": "1 file run, 512MB RAM, Real-time logs"},
+        {"name": "Basic",   "duration": "7 Days",    "price": "2", "features": "Multi-file upload, pip/npm install, 24/7 uptime"},
+        {"name": "Pro",     "duration": "30 Days",   "price": "5", "features": "Unlimited modules, Priority support, Auto-restart"},
+        {"name": "Premium", "duration": "Lifetime",  "price": "10","features": "All features, Custom domain, Dedicated help"},
     ],
 }
 
