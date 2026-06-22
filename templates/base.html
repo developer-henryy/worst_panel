@@ -1,116 +1,150 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{% block title %}SHAPPNO Vps — Pro Hosting Panel{% endblock %}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>{% block title %}CloudVPS — Pro Hosting Panel{% endblock %}</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --primary:#000000;
-  --primary-active:#1a1a1a;
-  --text-link:#0d74ce;
-  --ink:#171717;
-  --body:#60646c;
-  --muted:#999999;
-  --muted-soft:#cccccc;
-  --hairline:#f0f0f3;
-  --hairline-soft:#f5f5f7;
-  --hairline-strong:#dcdee0;
+  --primary:#0052ff;
+  --primary-active:#003ecc;
+  --primary-disabled:#a8b8cc;
+  --ink:#0a0b0d;
+  --body:#5b616e;
+  --muted:#7c828a;
+  --muted-soft:#a8acb3;
+  --hairline:#dee1e6;
+  --hairline-soft:#eef0f3;
   --canvas:#ffffff;
-  --canvas-soft:#fafafa;
+  --surface-soft:#f7f7f7;
   --surface-card:#ffffff;
-  --surface-strong:#f0f0f3;
-  --surface-dark:#171717;
-  --surface-dark-elevated:#1a1a1a;
+  --surface-strong:#eef0f3;
+  --surface-dark:#0a0b0d;
+  --surface-dark-elevated:#16181c;
   --on-primary:#ffffff;
   --on-dark:#ffffff;
-  --on-dark-soft:#b0b4ba;
-  --sky-light:#cfe7ff;
-  --sky-mid:#a8c8e8;
-  --warn:#ab6400;
-  --ok:#16a34a;
-  --danger:#eb8e90;
-  --radius-xs:4px;
-  --radius-sm:6px;
-  --radius-md:8px;
-  --radius-lg:12px;
-  --radius-xl:16px;
-  --radius-pill:9999px;
+  --on-dark-soft:#a8acb3;
+  --ok:#05b169;
+  --warn:#f4b000;
+  --danger:#cf202f;
 }
-html,body{margin:0;padding:0;font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--canvas);color:var(--ink);min-height:100vh}
-body{
-  background:
-    radial-gradient(1000px 500px at 50% -10%, var(--sky-light), transparent 60%),
-    var(--canvas);
-  background-attachment: fixed;
-}
-a{color:var(--text-link);text-decoration:none}
+html,body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--canvas);color:var(--ink);min-height:100vh;font-size:16px;line-height:1.5}
+a{color:var(--primary);text-decoration:none}
 a:hover{text-decoration:underline}
+
+/* NAV */
 .nav{
   position:sticky;top:0;z-index:50;
   display:flex;justify-content:space-between;align-items:center;
-  padding:0 28px;height:64px;
-  background:rgba(255,255,255,0.85);backdrop-filter:blur(14px);
+  padding:0 32px;height:64px;
+  background:var(--canvas);
   border-bottom:1px solid var(--hairline);
 }
-.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;letter-spacing:-0.3px;color:var(--ink)}
-.brand .logo{width:32px;height:32px;border-radius:var(--radius-md);background:var(--primary);display:grid;place-items:center;font-size:16px;color:#fff}
-.nav-links{display:flex;gap:22px;align-items:center}
-.nav-links a{color:var(--ink);font-size:14px;font-weight:500}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;height:40px;border-radius:var(--radius-md);border:0;cursor:pointer;font-weight:500;font-size:14px;font-family:inherit;transition:background-color .15s, box-shadow .15s, border-color .15s}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:17px;letter-spacing:-0.3px;color:var(--ink);text-decoration:none}
+.brand .logo{width:32px;height:32px;border-radius:9999px;background:var(--primary);display:grid;place-items:center;font-size:15px;color:#fff;flex-shrink:0}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--ink);font-size:14px;font-weight:500;text-decoration:none}
+.nav-links a:hover{color:var(--primary);text-decoration:none}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;height:44px;border-radius:100px;border:0;cursor:pointer;font-weight:600;font-size:16px;font-family:inherit;transition:background-color .15s,opacity .15s;text-decoration:none;white-space:nowrap}
 .btn-primary{background:var(--primary);color:var(--on-primary)}
-.btn-primary:hover{background:var(--primary-active)}
-.btn-ghost{background:var(--surface-card);color:var(--ink);border:1px solid var(--hairline-strong)}
-.btn-ghost:hover{background:var(--surface-strong)}
+.btn-primary:hover{background:var(--primary-active);text-decoration:none;color:#fff}
+.btn-secondary{background:var(--surface-strong);color:var(--ink)}
+.btn-secondary:hover{background:var(--hairline);text-decoration:none;color:var(--ink)}
+.btn-dark{background:var(--surface-dark-elevated);color:var(--on-dark)}
+.btn-dark:hover{background:#1f2227;text-decoration:none;color:#fff}
+.btn-outline-dark{background:transparent;color:var(--on-dark);border:1px solid rgba(255,255,255,0.3)}
+.btn-outline-dark:hover{background:rgba(255,255,255,0.08);text-decoration:none;color:#fff}
 .btn-ok{background:var(--ok);color:#fff}
-.btn-warn{background:var(--warn);color:#fff}
-.btn-danger{background:#dc2626;color:#fff}
-.btn-sm{padding:6px 12px;height:32px;font-size:12px;border-radius:var(--radius-sm)}
-.wrap{max-width:1200px;margin:32px auto;padding:0 20px}
-.card{background:var(--surface-card);border:1px solid var(--hairline-strong);border-radius:var(--radius-lg);padding:24px;box-shadow:0 4px 12px rgba(0,0,0,0.04)}
-.card + .card{margin-top:18px}
-h1,h2,h3{margin:0 0 14px;font-weight:600;letter-spacing:-0.5px;color:var(--ink)}
-h1{font-size:36px;line-height:1.15;letter-spacing:-1.08px}
-h2{font-size:22px;line-height:1.25;letter-spacing:-0.5px}
-h3{font-size:18px;line-height:1.4;letter-spacing:0}
+.btn-ok:hover{background:#04986e;text-decoration:none;color:#fff}
+.btn-warn{background:var(--warn);color:#000}
+.btn-danger{background:var(--danger);color:#fff}
+.btn-danger:hover{background:#b01a28;text-decoration:none;color:#fff}
+.btn-sm{padding:8px 16px;height:36px;font-size:14px;border-radius:100px}
+.btn-lg{padding:16px 32px;height:56px;font-size:16px;border-radius:100px}
+
+/* LAYOUT */
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.section-sm{padding:48px 0}
+
+/* CARDS */
+.card{background:var(--surface-card);border:1px solid var(--hairline);border-radius:24px;padding:32px}
+.card-sm{background:var(--surface-card);border:1px solid var(--hairline);border-radius:16px;padding:20px}
+.card-dark{background:var(--surface-dark-elevated);border-radius:24px;padding:32px;color:var(--on-dark)}
+.card+.card{margin-top:16px}
+
+/* HERO DARK BAND */
+.hero-dark{background:var(--surface-dark);color:var(--on-dark);padding:96px 0}
+.hero-dark h1{color:var(--on-dark)}
+.hero-dark p{color:var(--on-dark-soft)}
+
+/* TYPOGRAPHY */
+h1{font-size:48px;font-weight:400;line-height:1.05;letter-spacing:-1.2px;color:var(--ink)}
+h2{font-size:36px;font-weight:400;line-height:1.1;letter-spacing:-0.5px;color:var(--ink)}
+h3{font-size:18px;font-weight:600;line-height:1.33;color:var(--ink)}
+h4{font-size:16px;font-weight:600;line-height:1.25;color:var(--ink)}
+p{color:var(--body);line-height:1.6}
+
+/* FORM */
 input,select,textarea{
-  padding:12px 16px;height:44px;border-radius:var(--radius-md);border:1px solid var(--hairline-strong);
-  background:var(--surface-card);color:var(--ink);font-size:14px;font-family:inherit;
-  transition:border-color .15s, box-shadow .15s;
+  padding:14px 16px;height:48px;border-radius:12px;border:1px solid var(--hairline);
+  background:var(--canvas);color:var(--ink);font-size:16px;font-family:inherit;
+  transition:border-color .15s,box-shadow .15s;width:100%;
 }
-input:focus,select:focus,textarea:focus{outline:0;border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.row > input{flex:1;min-width:130px}
-.muted{color:var(--body);font-size:13px}
-.footer{text-align:center;padding:48px 30px;color:var(--body);font-size:14px;border-top:1px solid var(--hairline);margin-top:48px}
-.gradient-text{color:var(--ink)}
-.badge{display:inline-block;padding:4px 10px;border-radius:var(--radius-pill);font-size:11px;font-weight:600;letter-spacing:.88px;text-transform:uppercase;background:var(--surface-strong);color:var(--ink)}
-.badge-on{background:rgba(22,163,74,0.1);color:var(--ok);border:1px solid rgba(22,163,74,0.25)}
-.badge-off{background:rgba(220,38,38,0.08);color:#dc2626;border:1px solid rgba(220,38,38,0.25)}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--primary);border-width:2px;box-shadow:none}
+textarea{height:auto;resize:vertical}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;background:var(--surface-strong);color:var(--ink)}
+.badge-ok{background:rgba(5,177,105,0.12);color:var(--ok)}
+.badge-danger{background:rgba(207,32,47,0.1);color:var(--danger)}
+.badge-warn{background:rgba(244,176,0,0.15);color:#8a6200}
+.badge-blue{background:rgba(0,82,255,0.1);color:var(--primary)}
+
+/* TABLE */
 table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--hairline)}
-th{color:var(--body);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.88px}
+th{padding:12px 16px;text-align:left;color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--hairline)}
+td{padding:14px 16px;border-bottom:1px solid var(--hairline-soft);color:var(--ink)}
+tr:last-child td{border-bottom:0}
+
+/* UTILS */
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row>input{flex:1;min-width:120px}
+.muted{color:var(--muted);font-size:14px}
+.num{font-family:'JetBrains Mono',monospace;font-weight:500}
+code{background:var(--surface-strong);color:var(--ink);padding:2px 8px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:13px}
 form.inline{display:inline}
-code{background:var(--surface-strong);color:var(--ink);padding:2px 6px;border-radius:var(--radius-xs);font-family:'JetBrains Mono','Fira Code',monospace;font-size:13px}
+
+/* FOOTER */
+.footer{background:var(--canvas);border-top:1px solid var(--hairline);padding:48px 32px;text-align:center;color:var(--muted);font-size:14px}
+
+/* CTA BAND */
+.cta-band{background:var(--surface-dark);color:var(--on-dark);padding:96px 0;text-align:center}
+.cta-band h2{color:var(--on-dark)}
+.cta-band p{color:var(--on-dark-soft)}
 </style>
-{% block head %}{% endblock %}
-</head><body>
+</head>
+<body>
 <nav class="nav">
   <a href="/" class="brand"><span class="logo">⚡</span><span>CloudVPS</span></a>
   <div class="nav-links">
-    <a href="/home">Home</a>
     <a href="/pricing">Pricing</a>
-    {% if session.username %}
-      <span class="muted">{{session.username}}</span>
-      <a href="/logout" class="btn btn-ghost btn-sm">Logout</a>
+    {% if session.get('role') == 'owner' %}
+    <a href="/owner">Dashboard</a>
+    <a href="/logout" class="btn btn-secondary btn-sm" style="text-decoration:none">Logout</a>
+    {% elif session.get('role') == 'user' %}
+    <a href="/user">My Panel</a>
+    <a href="/logout" class="btn btn-secondary btn-sm" style="text-decoration:none">Logout</a>
     {% else %}
-      <a href="/login" class="btn btn-primary btn-sm">Login</a>
+    <a href="/login" class="btn btn-primary btn-sm" style="text-decoration:none">Sign In</a>
     {% endif %}
   </div>
 </nav>
 {% block body %}{% endblock %}
-<div class="footer">© CloudVPS — Powered by Railway · Built for developers</div>
-</body></html>
+<div class="footer">© 2026 CloudVPS · Built on Railway · Made for developers</div>
+</body>
+</html>

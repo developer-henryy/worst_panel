@@ -15,7 +15,7 @@
     {% if expires_at %}
     <div class="card" style="padding:10px 16px;margin:0">
       <span class="muted" style="font-size:12px">Expires in</span>
-      <div style="font-weight:700;color:#fbbf24">{{ ((expires_at-now)/3600)|round(1) }} hours</div>
+      <div style="font-weight:600;color:#fbbf24">{{ ((expires_at-now)/3600)|round(1) }} hours</div>
     </div>
     {% endif %}
   </div>

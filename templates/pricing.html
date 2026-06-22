@@ -1,27 +1,31 @@
 {% extends "base.html" %}
+{% block title %}Pricing — CloudVPS{% endblock %}
 {% block body %}
-<div class="wrap">
-  <section style="text-align:center;padding:30px 0">
-    <h1>💎 Pricing & Plans</h1>
-    <p class="muted">Pick a plan — pay the owner — get instant auto-login link.</p>
-  </section>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
-    {% for p in pricing.plans %}
-    <div class="card" style="text-align:center;{% if loop.index == 3 %}border:1px solid var(--ink);box-shadow:0 4px 12px rgba(0,0,0,0.08){% endif %}">
-      {% if loop.index == 3 %}<div class="badge" style="background:var(--primary);color:#fff;margin-bottom:10px">⭐ POPULAR</div>{% endif %}
-      <h3>{{p.name}}</h3>
-      <div style="font-size:40px;font-weight:600;margin:12px 0;letter-spacing:-0.84px">{{pricing.currency}}{{p.price}}</div>
-      <div class="muted" style="margin-bottom:16px">{{p.duration}}</div>
-      <div style="font-size:14px;color:var(--body);min-height:70px">{{p.features}}</div>
+<div class="section">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px">
+      <h1>Simple, transparent pricing</h1>
+      <p style="font-size:17px;color:var(--muted);margin-top:16px">Pick a plan — contact the owner — get instant access.</p>
     </div>
-    {% endfor %}
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      {% for p in pricing.plans %}
+      <div {% if loop.index == 3 %}style="background:var(--surface-dark);border-radius:24px;padding:32px;color:var(--on-dark)"{% else %}class="card"{% endif %}>
+        {% if loop.index == 3 %}<div class="badge badge-blue" style="margin-bottom:16px">Most Popular</div>{% endif %}
+        <h3 {% if loop.index == 3 %}style="color:var(--on-dark)"{% endif %}>{{p.name}}</h3>
+        <div style="font-size:52px;font-weight:400;letter-spacing:-1.3px;margin:20px 0 8px;{% if loop.index == 3 %}color:#fff{% else %}color:var(--ink){% endif %}">{{pricing.currency}}{{p.price}}</div>
+        <div style="font-size:14px;margin-bottom:24px;{% if loop.index == 3 %}color:var(--on-dark-soft){% else %}color:var(--muted){% endif %}">{{p.duration}}</div>
+        <div style="font-size:14px;min-height:80px;line-height:1.7;{% if loop.index == 3 %}color:var(--on-dark-soft){% else %}color:var(--body){% endif %}">{{p.features}}</div>
+        <a href="/login" {% if loop.index == 3 %}class="btn btn-primary"{% else %}class="btn btn-secondary"{% endif %} style="margin-top:24px;width:100%;height:44px">Get Started</a>
+      </div>
+      {% endfor %}
+    </div>
+    {% if pricing.contact %}
+    <div class="card" style="margin-top:32px;text-align:center">
+      <h3>How to Buy</h3>
+      <p style="margin-top:8px;color:var(--muted)">Contact the owner to purchase your plan and get instant access:</p>
+      <p style="font-size:20px;font-weight:600;margin-top:12px;color:var(--ink)">{{pricing.contact}}</p>
+    </div>
+    {% endif %}
   </div>
-  {% if pricing.contact %}
-  <div class="card" style="margin-top:24px;text-align:center">
-    <h3>💬 How to Buy</h3>
-    <p class="muted">Contact the owner to purchase your plan:</p>
-    <p style="font-size:18px;font-weight:600">{{pricing.contact}}</p>
-  </div>
-  {% endif %}
 </div>
 {% endblock %}

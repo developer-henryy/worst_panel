@@ -1,44 +1,114 @@
 {% extends "base.html" %}
 {% block body %}
-<div class="wrap">
-  <section style="text-align:center;padding:60px 0 40px">
-    <div class="badge badge-on" style="margin-bottom:20px">🚀 LIVE ON VPS</div>
-    <h1>Run Your Code on a Real VPS<br>in Seconds</h1>
-    <p class="muted" style="font-size:17px;max-width:640px;margin:18px auto">
-      Upload <code>.py</code>, <code>.js</code>, <code>.sh</code> files. Install modules with one command.
-      Watch real-time logs. Start, stop & restart any time.
+
+<!-- DARK HERO BAND -->
+<div class="hero-dark">
+  <div class="wrap" style="text-align:center">
+    <div class="badge badge-blue" style="margin-bottom:24px">🚀 Pro Hosting Panel</div>
+    <h1 style="font-size:64px;color:var(--on-dark);max-width:800px;margin:0 auto 24px">
+      Host anything.<br>Control everything.
+    </h1>
+    <p style="font-size:18px;color:var(--on-dark-soft);max-width:560px;margin:0 auto 40px;line-height:1.6">
+      Upload <code style="background:rgba(255,255,255,0.1);color:#fff">.py</code>, <code style="background:rgba(255,255,255,0.1);color:#fff">.js</code>, <code style="background:rgba(255,255,255,0.1);color:#fff">.sh</code> files. Install modules. Watch real-time logs. Start, stop and restart any time.
     </p>
-    <div style="margin-top:28px">
-      <a href="/login" class="btn btn-primary">Get Started →</a>
-      <a href="/pricing" class="btn btn-ghost" style="margin-left:10px">View Pricing</a>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="/login" class="btn btn-primary btn-lg">Get Started →</a>
+      <a href="/pricing" class="btn btn-outline-dark btn-lg">View Pricing</a>
     </div>
-  </section>
 
-  <section style="margin-top:40px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
-      <div class="card"><h3>⚡ Instant Deploy</h3><p class="muted">Upload any script and run it on real Railway servers with one click.</p></div>
-      <div class="card"><h3>📦 Module Install</h3><p class="muted">Run <code>pip install</code> or <code>npm install</code> right from the dashboard.</p></div>
-      <div class="card"><h3>📜 Live Logs</h3><p class="muted">Real-time stdout/stderr streaming — see exactly what's happening.</p></div>
-      <div class="card"><h3>🔐 Owner Control</h3><p class="muted">Time-bound accounts with auto-expiry & auto-login links.</p></div>
+    <!-- MOCK DASHBOARD CARD -->
+    <div class="card-dark" style="margin-top:64px;text-align:left;max-width:720px;margin-left:auto;margin-right:auto">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+        <div style="width:12px;height:12px;border-radius:50%;background:#cf202f"></div>
+        <div style="width:12px;height:12px;border-radius:50%;background:#f4b000"></div>
+        <div style="width:12px;height:12px;border-radius:50%;background:#05b169"></div>
+        <span style="color:var(--on-dark-soft);font-size:13px;margin-left:8px;font-family:'JetBrains Mono',monospace">cloudvps ~ user panel</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
+        <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:16px">
+          <div style="color:var(--on-dark-soft);font-size:12px;margin-bottom:4px">STATUS</div>
+          <div style="color:#05b169;font-weight:600">● Running</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:16px">
+          <div style="color:var(--on-dark-soft);font-size:12px;margin-bottom:4px">UPTIME</div>
+          <div style="color:#fff;font-family:'JetBrains Mono',monospace;font-weight:500">14h 32m</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:16px">
+          <div style="color:var(--on-dark-soft);font-size:12px;margin-bottom:4px">LOGS</div>
+          <div style="color:#fff;font-weight:600">Live ↗</div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#a6f3a6">
+        [INFO] Bot started successfully<br>
+        [INFO] Polling for updates...<br>
+        [INFO] Received /start from user 123456
+      </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section style="margin-top:60px">
-    <h2 style="text-align:center">💎 Pricing Plans</h2>
-    <p class="muted" style="text-align:center;margin-bottom:24px">Choose the plan that fits your project</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+<!-- FEATURES SECTION -->
+<div class="section">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px">
+      <h2>Everything you need to host</h2>
+      <p style="font-size:17px;color:var(--muted);margin-top:12px">No complicated setup. Just upload and run.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <div class="card">
+        <div style="font-size:32px;margin-bottom:16px">⚡</div>
+        <h3>Instant Deploy</h3>
+        <p style="margin-top:8px;font-size:15px">Upload any script and run it on real servers with one click. No configuration needed.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:32px;margin-bottom:16px">📦</div>
+        <h3>Module Install</h3>
+        <p style="margin-top:8px;font-size:15px">Run <code>pip install</code> or <code>npm install</code> right from the dashboard — instantly.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:32px;margin-bottom:16px">📜</div>
+        <h3>Live Logs</h3>
+        <p style="margin-top:8px;font-size:15px">Real-time stdout/stderr streaming so you always know exactly what's happening.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:32px;margin-bottom:16px">🔐</div>
+        <h3>Owner Control</h3>
+        <p style="margin-top:8px;font-size:15px">Time-bound accounts with auto-expiry, auto-login links and full user management.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING SECTION -->
+<div style="background:var(--surface-soft);padding:96px 0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px">
+      <h2>Simple pricing</h2>
+      <p style="font-size:17px;color:var(--muted);margin-top:12px">Choose the plan that fits your project.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
       {% for p in pricing.plans %}
-      <div class="card" style="text-align:center;{% if loop.index == 3 %}border:1px solid var(--ink);box-shadow:0 4px 12px rgba(0,0,0,0.08){% endif %}">
-        {% if loop.index == 3 %}<div class="badge" style="background:var(--primary);color:#fff;border:0;margin-bottom:10px">POPULAR</div>{% endif %}
-        <h3 style="font-size:18px">{{p.name}}</h3>
-        <div style="font-size:34px;font-weight:600;margin:10px 0;letter-spacing:-0.84px">{{pricing.currency}}{{p.price}}</div>
-        <div class="muted" style="font-size:13px;margin-bottom:14px">{{p.duration}}</div>
-        <div style="font-size:13px;color:var(--body);min-height:60px">{{p.features}}</div>
-        <a href="/login" class="btn btn-primary" style="margin-top:14px;width:100%;justify-content:center">Choose Plan</a>
+      <div {% if loop.index == 3 %}style="background:var(--surface-dark);border-radius:24px;padding:32px;color:var(--on-dark)"{% else %}class="card"{% endif %}>
+        {% if loop.index == 3 %}<div class="badge badge-blue" style="margin-bottom:16px">Popular</div>{% endif %}
+        <h3 {% if loop.index == 3 %}style="color:var(--on-dark)"{% endif %}>{{p.name}}</h3>
+        <div style="font-size:48px;font-weight:400;letter-spacing:-1px;margin:16px 0;{% if loop.index == 3 %}color:#fff{% else %}color:var(--ink){% endif %}">{{pricing.currency}}{{p.price}}</div>
+        <div style="font-size:14px;margin-bottom:20px;{% if loop.index == 3 %}color:var(--on-dark-soft){% else %}color:var(--muted){% endif %}">{{p.duration}}</div>
+        <div style="font-size:14px;min-height:60px;{% if loop.index == 3 %}color:var(--on-dark-soft){% else %}color:var(--body){% endif %}">{{p.features}}</div>
+        <a href="/login" {% if loop.index == 3 %}class="btn btn-primary btn-lg"{% else %}class="btn btn-secondary btn-lg"{% endif %} style="margin-top:24px;width:100%">Choose Plan</a>
       </div>
       {% endfor %}
     </div>
-    {% if pricing.contact %}<p class="muted" style="text-align:center;margin-top:24px">📞 Contact owner to buy: <b style="color:var(--ink)">{{pricing.contact}}</b></p>{% endif %}
-  </section>
+    {% if pricing.contact %}<p style="text-align:center;margin-top:32px;color:var(--muted)">Contact owner to buy: <b style="color:var(--ink)">{{pricing.contact}}</b></p>{% endif %}
+  </div>
 </div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="wrap">
+    <h2 style="font-size:48px;margin-bottom:16px">Ready to get started?</h2>
+    <p style="font-size:17px;margin-bottom:40px">Deploy your first bot or app in minutes.</p>
+    <a href="/login" class="btn btn-primary btn-lg">Get Started →</a>
+  </div>
+</div>
+
 {% endblock %}
